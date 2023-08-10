@@ -7,10 +7,11 @@ This is a simple Solidity contract that demonstrates error handling in Solidity 
 Contract Overview
 The Checks contract includes the following functionality:
 
-A public variable limit that represents the maximum amount of Ether that can be transferred.
-A getBalance function that retrieves the Ether balance of a given address.
-An error definition called singleTransferLimit to handle a specific error condition.
-A transfer function that allows transferring Ether to a specified receiver address.
+1. A public variable limit that represents the maximum amount of Ether that can be transferred.
+2. A getBalance function that retrieves the Ether balance of a given address.
+3. An error definition called singleTransferLimit to handle a specific error condition.
+4. A transfer function that allows transferring Ether to a specified receiver address.
+
 Error Handling
 require()
 The require() statement is used to validate certain conditions before further execution of a function.
@@ -30,12 +31,12 @@ The revert() statement can be used to flag an error and revert the current call.
 Using the Contract in Remix IDE
 To use this contract in the Remix IDE, follow these steps:
 
-Open the Remix IDE (https://remix.ethereum.org/).
-Create a new Solidity file and name it "Module1.sol".
-Copy and paste the contract code into the "Module1.sol" file.
-Select the appropriate Solidity compiler version (0.8.0 or higher) in the Remix IDE.
-Compile the contract by clicking the "Compile" button.
-Once compiled successfully, you can interact with the contract using the Remix IDE's built-in console or by deploying it to a test network.
+1. Open the Remix IDE (https://remix.ethereum.org/).
+2. Create a new Solidity file and name it "Module1.sol".
+3. Copy and paste the contract code into the "Module1.sol" file.
+4. Select the appropriate Solidity compiler version (0.8.0 or higher) in the Remix IDE.
+5. Compile the contract by clicking the "Compile" button.
+6. Once compiled successfully, you can interact with the contract using the Remix IDE's built-in console or by deploying it to a test network.
 Note: Before interacting with the contract, make sure you have a compatible Ethereum wallet connected to the Remix IDE (e.g., MetaMask).
 
 Contract Functionality
