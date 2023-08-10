@@ -11,15 +11,12 @@ contract Checks {
     error SingleTransferLimitExceeded(uint256 limit);
 
     function transfer(address payable _receiver) public payable {
-        // Using assert to ensure the initial value of 'limit'
         assert(limit == 10 ether);
 
-        // Using require to check minimum value sent
         require(msg.value >= 1 ether, "At least 1 ether should be sent");
 
         _receiver.transfer(msg.value);
 
-        // Using revert to handle limit exceeding
         if (msg.value > limit) {
             revert SingleTransferLimitExceeded(limit);
         }
