@@ -1,35 +1,27 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+pragma solidity ^0.8.0;
 
-contract ExceptionHandling {
-    uint public value;
+contract Checks {
+    uint public limit = 10 ether;
 
-    function setValue(uint _value) public {
-        // Using require() statement
-        require(_value > 0, "Value must be greater than zero");
-        
-        value = _value;
+    function getBalance(address _address) public view returns (uint256) {
+        return _address.balance;
     }
 
-    function getValue() public view returns (uint) {
-        return value;
-    }
+    error SingleTransferLimitExceeded(uint256 limit);
 
-    function assertExample() public pure {
-        uint x = 1;
-        uint y = 2;
+    function transfer(address payable _receiver) public payable {
+        // Using assert to ensure the initial value of 'limit'
+        assert(limit == 10 ether);
 
-        // Using assert() statement
-        assert(x == y);
-    }
+        // Using require to check minimum value sent
+        require(msg.value >= 1 ether, "At least 1 ether should be sent");
 
-    function revertExample() public pure {
-        uint x = 1;
-        uint y = 2;
+        _receiver.transfer(msg.value);
 
-        // Using revert() statement
-        if (x != y) {
-            revert("x and y must be equal");
+        // Using revert to handle limit exceeding
+        if (msg.value > limit) {
+            revert SingleTransferLimitExceeded(limit);
         }
     }
 }
